@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 170" width="900" height="170" role="img" aria-label="A small moth circling a hanging lamp">
+  <title>a moth, circling a lamp</title>
+  <defs>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe3a6" stop-opacity="0.9"/>
+      <stop offset="0.15" stop-color="#ffc56b" stop-opacity="0.45"/>
+      <stop offset="0.5" stop-color="#ff9e3d" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ff9e3d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ground" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffc56b" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ffc56b" stop-opacity="0"/>
+    </radialGradient>
+    <path id="orbit" d="M450,98 C520,60 560,120 500,140 C430,160 360,120 395,78 C420,48 470,52 482,84 C492,112 430,128 412,104 C396,82 440,70 450,98 Z"/>
+  </defs>
+  <style>
+    .flicker { animation: flicker 5s infinite; }
+    @keyframes flicker { 0%,100%{opacity:1} 63%{opacity:1} 64%{opacity:.5} 65%{opacity:1} 67%{opacity:.75} 69%{opacity:1} }
+  </style>
+
+  <rect width="900" height="170" fill="#0a0c11"/>
+  <ellipse cx="450" cy="160" rx="220" ry="14" fill="url(#ground)" class="flicker"/>
+
+  <!-- cord and lamp -->
+  <line x1="450" y1="0" x2="450" y2="66" stroke="#2c3344" stroke-width="1.5"/>
+  <path d="M436,66 h28 l-4,10 h-20 Z" fill="#1c2230" stroke="#2f3749"/>
+  <g class="flicker">
+    <circle cx="450" cy="86" r="130" fill="url(#halo)"/>
+    <circle cx="450" cy="86" r="9" fill="#fff1cf"/>
+  </g>
+
+  <!-- the moth -->
+  <g>
+    <g transform="rotate(90)">
+      <path d="M0,0 L-9,-7 L-11,1 Z M0,0 L9,-7 L11,1 Z" fill="#6f93e6" stroke="#cfe0ff" stroke-width="0.5">
+        <animateTransform attributeName="transform" type="scale" values="1 1;0.3 1;1 1" dur="0.18s" repeatCount="indefinite"/>
+      </path>
+      <ellipse rx="1.6" ry="4" fill="#cfe0ff"/>
+    </g>
+    <animateMotion dur="9s" repeatCount="indefinite" rotate="auto" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1">
+      <mpath href="#orbit"/>
+    </animateMotion>
+  </g>
+</svg>
