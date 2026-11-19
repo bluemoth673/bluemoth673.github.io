@@ -216,7 +216,7 @@ footer span{color:var(--green)}
     <div class="reveal">
       <p>I'm a <strong>Computer Science student at the Arab Academy for Science, Technology and Maritime Transport</strong>, graduating in 2027. Linux is my daily driver, and the terminal is where I'm most at home.</p>
       <p>My focus is <strong>offensive security and web application testing</strong> — finding SQL injection and XSS with OWASP ZAP, analysing firmware dumps for secrets — balanced with <strong>defensive work</strong> like Wazuh monitoring and Microsoft 365 security.</p>
-      <p>Right now I'm co-building <strong>ARES</strong>, an AI-powered autonomous security platform, as my graduation project. It's where my two interests meet: understanding how attacks work, and designing systems that stop them automatically.</p>
+      <p>Right now I'm <strong>leading ARES</strong>, my six-person graduation project: anomaly detection for drone (UAV) telemetry. It's where my two interests meet: understanding how attacks work, and designing systems that stop them automatically.</p>
       <p>I'd rather show genuine hands-on work than a list of badges. Everything on this page is something I've actually built or done.</p>
     </div>
     <div class="card reveal facts">
@@ -240,21 +240,23 @@ footer span{color:var(--green)}
   <div class="sh reveal"><span class="n">02.</span><h2>Featured project</h2><span class="ln"></span></div>
   <div class="card ares reveal">
     <div class="ares-top">
-      <div><div class="label">Graduation project · Team</div>
-        <h3>ARES</h3><div class="sub">Autonomous Resilient Enterprise Security</div></div>
-      <span class="status">◐ in active development</span>
+      <div><div class="label">Graduation project · Team lead · 6 people</div>
+        <h3>ARES</h3><div class="sub">UAV telemetry anomaly detection</div></div>
+      <span class="status">◐ in active development · private repo</span>
     </div>
-    <p class="d">An AI-powered enterprise security platform that goes beyond traditional SIEM and EDR. The goal: a system that can <strong style="color:var(--text)">detect, understand, and respond</strong> to cyber threats autonomously — not just raise alerts for humans to triage.</p>
+    <p class="d">Drones trust their telemetry. ARES watches it. It reads live <strong style="color:var(--text)">MAVLink</strong> data from a simulated ArduPilot drone, detects attacks such as <strong style="color:var(--text)">GPS position jumps</strong>, and explains which part of the mission is at risk, so an operator knows not just <em>that</em> something is wrong but <em>what it threatens</em>.</p>
     <div class="mods">
-      <div class="mod"><span class="i">[01]</span><h4>AI-powered XDR</h4><p>Extended detection and response across endpoints, network and cloud.</p></div>
-      <div class="mod"><span class="i">[02]</span><h4>Security Knowledge Graph</h4><p>Links assets, identities and events so threats are understood in context.</p></div>
-      <div class="mod"><span class="i">[03]</span><h4>Attack Simulation</h4><p>Automated adversary emulation to continuously test defenses.</p></div>
-      <div class="mod"><span class="i">[04]</span><h4>AI SOC Copilot</h4><p>An assistant that explains incidents and recommends responses to analysts.</p></div>
-      <div class="mod"><span class="i">[05]</span><h4>Digital Twin</h4><p>A model of the enterprise environment to safely test changes and attacks.</p></div>
-      <div class="mod"><span class="i">[06]</span><h4>Platform Integrations</h4><p>Works alongside the tools enterprises already run.</p></div>
+      <div class="mod"><span class="i">[01]</span><h4>Simulated flights</h4><p>Normal and attacked missions flown in ArduPilot SITL.</p></div>
+      <div class="mod"><span class="i">[02]</span><h4>Telemetry pipeline</h4><p>Collects MAVLink messages with pymavlink for analysis.</p></div>
+      <div class="mod"><span class="i">[03]</span><h4>Anomaly detection</h4><p>Flags attacks such as GPS spoofing / position jumps.</p></div>
+      <div class="mod"><span class="i">[04]</span><h4>Mission impact</h4><p>Maps each alert to the waypoint and mission part at risk.</p></div>
+      <div class="mod"><span class="i">[05]</span><h4>Map view</h4><p>Flight paths plotted with Folium.</p></div>
+      <div class="mod"><span class="i">[06]</span><h4>Team leadership</h4><p>Scope, task ownership and integration.</p></div>
     </div>
-    <div class="integr"><span class="k">integrates with →</span>
-      <span class="chip">Microsoft Defender</span><span class="chip">CrowdStrike</span><span class="chip">Wazuh</span><span class="chip">Splunk</span><span class="chip">+ more</span>
+    <div class="integr"><span class="k">my role →</span>
+      <span class="chip g">Team lead</span>
+      <span class="k" style="margin-left:14px">stack →</span>
+      <span class="chip c">Python</span><span class="chip c">pymavlink</span><span class="chip c">ArduPilot SITL</span><span class="chip c">MAVLink</span><span class="chip c">Folium</span>
     </div>
   </div>
 </div></section>
@@ -344,7 +346,7 @@ footer span{color:var(--green)}
   <div class="road reveal">
     <div class="step done"><div class="w">foundation</div><h4>CS degree &amp; programming</h4><p>Python, Java, C/C++ and Linux at AASTMT — the base everything else builds on.</p></div>
     <div class="step done"><div class="w">hands-on</div><h4>Offensive &amp; defensive labs</h4><p>Web app testing with ZAP, firmware analysis, Wazuh monitoring, M365 security.</p></div>
-    <div class="step now"><div class="w">now · 2026–2027</div><h4>ARES graduation project</h4><p>Building an autonomous, AI-driven security platform with my team.</p></div>
+    <div class="step now"><div class="w">now · 2026–2027</div><h4>ARES graduation project</h4><p>Leading a six-person team building anomaly detection for UAV telemetry.</p></div>
     <div class="step"><div class="w">next</div><h4>Junior Pentester / SOC Analyst</h4><p>Real-world experience on offensive and defensive teams, plus industry certifications.</p></div>
     <div class="step"><div class="w">goal</div><h4>Cybersecurity Architect</h4><p>Designing secure enterprise systems from the ground up.</p></div>
   </div>
@@ -430,23 +432,24 @@ defensive engineering by design. Linux daily driver.
 <span class="o-g">[security]</span>   web app pentesting · vuln assessment · network security
              SecOps & threat detection · AI-driven security · automation
 <span class="o-g">[tools]</span>      OWASP ZAP · Wazuh · M365 Security · OpManager · OpenVAS · Git · Linux`,
- projects:()=>`<span class="o-c">01</span> <span class="o-g">ARES</span>                 AI autonomous security platform  (type 'ares')
+ projects:()=>`<span class="o-c">01</span> <span class="o-g">ARES</span>                 UAV attack detection · team lead (type 'ares')
 <span class="o-c">02</span> <span class="o-g">AnalystBridge</span>        malware intel: MITRE mapping, IOCs, scoring → <a href="https://github.com/bluemoth673/AnalystBridge" target="_blank">github</a>
 <span class="o-c">03</span> <span class="o-g">Attack & Defend Lab</span>  dockerized attacker vs defender → <a href="https://github.com/bluemoth673/Tools-For-attack-and-defend" target="_blank">github</a>
 <span class="o-c">04</span> <span class="o-g">Web App Testing</span>      ZAP · SQLi · XSS labs
 <span class="o-c">05</span> <span class="o-g">EEPROM Analysis</span>      recovered keys/passwords from a firmware dump
 <span class="o-c">06</span> <span class="o-g">Blue Team Labs</span>       Wazuh · Microsoft 365 · OpManager
 <span class="o-c">07</span> <span class="o-g">CSV Cleaner</span>          Python data-cleaning CLI → <a href="https://github.com/bluemoth673/python-csv-cleaner" target="_blank">github</a>`,
- ares:()=>`<span class="o-p">╔═ ARES ═ Autonomous Resilient Enterprise Security ═╗</span>
- Graduation project · team · <span class="o-y">in development</span>
+ ares:()=>`<span class="o-p">╔═══ ARES ═ UAV telemetry anomaly detection ═══╗</span>
+ Graduation project · <span class="o-g">team lead</span> (6 people) · <span class="o-y">in development</span>
 
- Beyond SIEM/EDR — a platform that detects, understands and
- responds to threats autonomously.
+ Reads MAVLink telemetry from a simulated ArduPilot drone,
+ detects attacks like GPS position jumps, and explains which
+ part of the mission is at risk.
 
-  <span class="o-g">▸</span> AI-powered XDR          <span class="o-g">▸</span> Security knowledge graph
-  <span class="o-g">▸</span> Automated attack sim    <span class="o-g">▸</span> AI SOC copilot
-  <span class="o-g">▸</span> Enterprise digital twin <span class="o-g">▸</span> Defender/CrowdStrike/Wazuh/Splunk
-<span class="o-p">╚═══════════════════════════════════════════════════╝</span>`,
+  <span class="o-g">▸</span> SITL flights: normal + attacked
+  <span class="o-g">▸</span> telemetry → detection → mission at risk
+  <span class="o-m">stack: Python · pymavlink · ArduPilot SITL · Folium</span>
+<span class="o-p">╚══════════════════════════════════════════════╝</span>`,
  roadmap:()=>`<span class="o-g">[✓]</span> CS foundations & programming
 <span class="o-g">[✓]</span> offensive + defensive labs
 <span class="o-y">[~]</span> ARES graduation project   &lt;-- you are here
