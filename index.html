@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tamer — BlueMoth673</title>
+<meta name="description" content="Tamer (BlueMoth673) — Cybersecurity student at AASTMT. Offensive security, security architecture and AI-driven defense.">
+<meta property="og:title" content="Tamer — BlueMoth673 | Cybersecurity">
+<meta property="og:description" content="Cybersecurity student · Aspiring Cybersecurity Architect · Python & Java developer.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23130f1c'/><text x='5' y='22' font-family='monospace' font-size='16' fill='%2339ff88'>&gt;_</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0a12; --bg2:#13101c; --card:#17132300; --panel:#16121f; --line:#2a2238;
+  --purple:#7c4dff; --purple-d:#3b2470; --green:#39ff88; --cyan:#4fd8eb;
+  --text:#e8e4f0; --muted:#9b93ad; --dim:#6b6380;
+  --sans:'Space Grotesk',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--green);color:#000}
+.mono{font-family:var(--mono)}
+#grid{position:fixed;inset:0;z-index:-1;opacity:.55}
+.glow{position:fixed;width:700px;height:700px;border-radius:50%;filter:blur(120px);z-index:-1;pointer-events:none}
+.g1{background:#3b2470;top:-250px;right:-200px;opacity:.55}
+.g2{background:#0f3b3a;bottom:-300px;left:-250px;opacity:.35}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(12,10,18,.8);backdrop-filter:blur(12px);border-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--mono);font-weight:700;font-size:15px}
+.logo span{color:var(--green)}
+.links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--muted)}
+.links a:hover{color:var(--text)}
+.links a .n{color:var(--green);font-family:var(--mono);font-size:12px;margin-right:4px}
+.term-btn{font-family:var(--mono);font-size:13px;border:1px solid var(--line);padding:7px 12px;border-radius:8px;color:var(--green);background:transparent;cursor:pointer;transition:.2s}
+.term-btn:hover{border-color:var(--green);box-shadow:0 0 18px -6px var(--green)}
+.burger{display:none;background:none;border:0;color:var(--text);font-size:22px;cursor:pointer}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:68px}
+.tag{font-family:var(--mono);font-size:13px;color:var(--green);display:inline-flex;gap:8px;align-items:center;border:1px solid #1f4a35;background:#0f1f17;padding:6px 12px;border-radius:99px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+h1{font-size:clamp(42px,7vw,84px);line-height:1.02;font-weight:700;letter-spacing:-.03em;margin:26px 0 10px}
+h1 .alias{display:block;font-family:var(--mono);font-size:.38em;font-weight:500;color:var(--purple);letter-spacing:0;margin-top:14px}
+.typed{font-family:var(--mono);font-size:clamp(16px,2.2vw,21px);color:var(--muted);min-height:1.6em}
+.typed b{color:var(--cyan);font-weight:500}
+.caret{display:inline-block;width:9px;height:1.1em;background:var(--green);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{max-width:620px;color:var(--muted);font-size:17px;margin:22px 0 34px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:10px;font-weight:600;font-size:15px;transition:.2s;border:1px solid var(--line)}
+.btn.p{background:var(--green);color:#06140c;border-color:var(--green)}
+.btn.p:hover{box-shadow:0 0 28px -6px var(--green);transform:translateY(-2px)}
+.btn.s:hover{border-color:var(--purple);transform:translateY(-2px)}
+.hint{margin-top:44px;font-family:var(--mono);font-size:12px;color:var(--dim)}
+.hint kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--muted)}
+
+/* sections */
+section{padding:110px 0}
+.sh{display:flex;align-items:center;gap:16px;margin-bottom:48px}
+.sh .n{font-family:var(--mono);color:var(--green);font-size:15px}
+.sh h2{font-size:clamp(28px,4vw,38px);letter-spacing:-.02em}
+.sh .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+.card{background:linear-gradient(180deg,rgba(28,22,42,.7),rgba(19,16,28,.7));border:1px solid var(--line);border-radius:16px;padding:28px;transition:.25s;position:relative}
+.card:hover{border-color:#3e3157}
+
+/* about */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:36px}
+.about p{color:var(--muted);margin-bottom:16px;font-size:16.5px}
+.about p strong{color:var(--text);font-weight:600}
+.facts{font-family:var(--mono);font-size:13.5px}
+.facts .row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.facts .row:last-child{border:0}
+.facts .k{color:var(--dim)} .facts .v{color:var(--text);text-align:right}
+.facts .v.g{color:var(--green)}
+.roles{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{font-family:var(--mono);font-size:12.5px;padding:5px 11px;border-radius:7px;border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.02)}
+.chip.c{color:var(--cyan);border-color:#1d4a52}
+.chip.g{color:var(--green);border-color:#1f4a35}
+.chip.p{color:#b49bff;border-color:#3b2a66}
+
+/* ARES */
+.ares{border-color:#3b2a66;padding:44px;overflow:hidden}
+.ares::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 90% 0%,rgba(124,77,255,.18),transparent 70%);pointer-events:none}
+.ares-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:flex-start}
+.label{font-family:var(--mono);font-size:12px;color:var(--purple);letter-spacing:.12em;text-transform:uppercase}
+.ares h3{font-size:clamp(30px,4.5vw,46px);letter-spacing:-.02em;margin:8px 0 2px}
+.ares .sub{color:var(--cyan);font-family:var(--mono);font-size:14px}
+.ares p.d{color:var(--muted);max-width:720px;margin:20px 0 32px;font-size:16.5px}
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mod{border:1px solid var(--line);border-radius:12px;padding:18px;background:rgba(12,10,18,.5);transition:.25s}
+.mod:hover{border-color:var(--green);transform:translateY(-3px)}
+.mod .i{font-family:var(--mono);color:var(--green);font-size:12px}
+.mod h4{font-size:16px;margin:6px 0 4px}
+.mod p{font-size:13.5px;color:var(--muted)}
+.integr{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.integr .k{font-family:var(--mono);font-size:12px;color:var(--dim);margin-right:6px}
+.status{font-family:var(--mono);font-size:12px;color:#ffcf5c;border:1px solid #4d3f17;background:#1e1a0c;padding:5px 10px;border-radius:99px}
+
+/* projects */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+.card h3{font-size:21px;margin:10px 0 8px}
+.card .desc{color:var(--muted);font-size:15px;margin-bottom:16px}
+.card ul{list-style:none;margin-bottom:18px}
+.card li{font-size:14px;color:var(--muted);padding:4px 0 4px 20px;position:relative}
+.card li::before{content:"▹";position:absolute;left:0;color:var(--green)}
+.card .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.card .gh{font-family:var(--mono);font-size:13px;color:var(--cyan)}
+.card .gh:hover{text-decoration:underline}
+.ico{font-family:var(--mono);color:var(--purple);font-size:13px}
+
+/* skills */
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card h3.s{font-size:16px;font-family:var(--mono);color:var(--green);margin:0 0 16px;font-weight:500}
+.bar{margin-bottom:13px}
+.bar .t{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+.bar .t span:last-child{font-family:var(--mono);font-size:11.5px;color:var(--dim)}
+.bar .tr{height:5px;border-radius:5px;background:#231c31;overflow:hidden}
+.bar .f{height:100%;width:0;border-radius:5px;background:linear-gradient(90deg,var(--purple),var(--green));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+
+/* roadmap */
+.road{position:relative;padding-left:30px}
+.road::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--green),var(--purple),var(--line))}
+.step{position:relative;margin-bottom:34px}
+.step::before{content:"";position:absolute;left:-29px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--purple)}
+.step.done::before{border-color:var(--green);background:var(--green);box-shadow:0 0 12px var(--green)}
+.step.now::before{border-color:var(--green);animation:pulse 2s infinite}
+.step .w{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
+.step h4{font-size:18px;margin:2px 0}
+.step p{color:var(--muted);font-size:14.5px;max-width:640px}
+
+/* contact */
+.contact{text-align:center;max-width:640px;margin:0 auto}
+.contact h2{font-size:clamp(34px,5vw,52px);letter-spacing:-.02em;margin:12px 0 16px}
+.contact p{color:var(--muted);font-size:17px;margin-bottom:34px}
+.socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.socials a{font-family:var(--mono);font-size:13px;color:var(--muted);border:1px solid var(--line);padding:9px 14px;border-radius:9px;transition:.2s}
+.socials a:hover{color:var(--green);border-color:var(--green)}
+footer{text-align:center;padding:40px 0;font-family:var(--mono);font-size:12px;color:var(--dim);border-top:1px solid var(--line)}
+footer span{color:var(--green)}
+
+/* terminal */
+#term{position:fixed;inset:0;z-index:100;background:rgba(5,4,9,.75);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px}
+#term.open{display:flex;animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.tw{width:min(860px,100%);height:min(560px,88vh);background:#0b0910;border:1px solid #33284a;border-radius:14px;box-shadow:0 30px 80px -20px #000,0 0 60px -30px var(--green);display:flex;flex-direction:column;overflow:hidden}
+.tbar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#141020;border-bottom:1px solid var(--line)}
+.tbar i{width:12px;height:12px;border-radius:50%;display:block;cursor:pointer}
+.tbar .t{flex:1;text-align:center;font-family:var(--mono);font-size:12.5px;color:var(--dim)}
+.tbody{flex:1;overflow-y:auto;padding:16px 18px;font-family:var(--mono);font-size:13.5px;line-height:1.65;cursor:text}
+.tbody .ln{white-space:pre-wrap;word-break:break-word}
+.pr{color:var(--green)} .pr b{color:var(--purple);font-weight:500} .pr em{color:var(--cyan);font-style:normal}
+.o-m{color:var(--muted)} .o-c{color:var(--cyan)} .o-g{color:var(--green)} .o-p{color:#b49bff} .o-r{color:#ff6b81} .o-y{color:#ffcf5c}
+.tbody a{color:var(--cyan);text-decoration:underline}
+.inl{display:flex}
+.inl input{flex:1;background:transparent;border:0;outline:0;color:var(--text);font:inherit;caret-color:var(--green);margin-left:8px}
+
+@media (max-width:860px){
+  .about,.pgrid,.sgrid{grid-template-columns:1fr}
+  .mods{grid-template-columns:1fr 1fr}
+  .ares{padding:28px}
+  .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:rgba(12,10,18,.97);padding:24px;border-bottom:1px solid var(--line)}
+  .links.open{display:flex}
+  .burger{display:block}
+  section{padding:80px 0}
+}
+@media (max-width:520px){.mods{grid-template-columns:1fr}.wrap{padding:0 16px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="grid"></canvas>
+<div class="glow g1"></div><div class="glow g2"></div>
+
+<nav id="nav"><div class="wrap">
+  <a href="#top" class="logo">bluemoth<span>673</span>_</a>
+  <div class="links" id="links">
+    <a href="#about"><span class="n">01.</span>About</a>
+    <a href="#ares"><span class="n">02.</span>ARES</a>
+    <a href="#projects"><span class="n">03.</span>Work</a>
+    <a href="#skills"><span class="n">04.</span>Skills</a>
+    <a href="#path"><span class="n">05.</span>Path</a>
+    <a href="#contact"><span class="n">06.</span>Contact</a>
+    <button class="term-btn" onclick="T.open()" title="Open terminal (press `)">&gt;_ terminal</button>
+  </div>
+  <button class="burger" onclick="document.getElementById('links').classList.toggle('open')" aria-label="Menu">☰</button>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <span class="tag"><span class="dot"></span>Open to internships &amp; junior security roles</span>
+  <h1>Hi, I'm Tamer.<span class="alias">aka BlueMoth673</span></h1>
+  <div class="typed"><span class="o-g">$</span> <b id="typed"></b><span class="caret"></span></div>
+  <p class="lead">Computer Science student at AASTMT building toward a career as a <strong style="color:var(--text)">Cybersecurity Architect</strong>. I break web apps to understand them, monitor systems to defend them, and write Python &amp; Java to automate the boring parts.</p>
+  <div class="cta">
+    <a class="btn p" href="#ares">View my work →</a>
+    <a class="btn s" href="#contact">Get in touch</a>
+  </div>
+  <p class="hint">psst — press <kbd>`</kbd> or type <kbd>sudo</kbd> anywhere to open the terminal</p>
+</div></header>
+
+<section id="about"><div class="wrap">
+  <div class="sh reveal"><span class="n">01.</span><h2>About me</h2><span class="ln"></span></div>
+  <div class="about">
+    <div class="reveal">
+      <p>I'm a <strong>Computer Science student at the Arab Academy for Science, Technology and Maritime Transport</strong>, graduating in 2027. Linux is my daily driver, and the terminal is where I'm most at home.</p>
+      <p>My focus is <strong>offensive security and web application testing</strong> — finding SQL injection and XSS with OWASP ZAP, analysing firmware dumps for secrets — balanced with <strong>defensive work</strong> like Wazuh monitoring and Microsoft 365 security.</p>
+      <p>Right now I'm co-building <strong>ARES</strong>, an AI-powered autonomous security platform, as my graduation project. It's where my two interests meet: understanding how attacks work, and designing systems that stop them automatically.</p>
+      <p>I'd rather show genuine hands-on work than a list of badges. Everything on this page is something I've actually built or done.</p>
+    </div>
+    <div class="card reveal facts">
+      <div class="row"><span class="k">location</span><span class="v">Egypt 🇪🇬</span></div>
+      <div class="row"><span class="k">university</span><span class="v">AASTMT</span></div>
+      <div class="row"><span class="k">degree</span><span class="v">B.Sc. Computer Science</span></div>
+      <div class="row"><span class="k">graduating</span><span class="v">2027</span></div>
+      <div class="row"><span class="k">os</span><span class="v">Linux</span></div>
+      <div class="row"><span class="k">status</span><span class="v g">● available</span></div>
+      <div style="padding-top:14px"><span class="k" style="color:var(--dim)">target roles</span>
+        <div class="roles">
+          <span class="chip g">Junior Pentester</span><span class="chip c">SOC Analyst L1</span>
+          <span class="chip p">Jr. Security Engineer</span><span class="chip">Security Researcher</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="ares"><div class="wrap">
+  <div class="sh reveal"><span class="n">02.</span><h2>Featured project</h2><span class="ln"></span></div>
+  <div class="card ares reveal">
+    <div class="ares-top">
+      <div><div class="label">Graduation project · Team</div>
+        <h3>ARES</h3><div class="sub">Autonomous Resilient Enterprise Security</div></div>
+      <span class="status">◐ in active development</span>
+    </div>
+    <p class="d">An AI-powered enterprise security platform that goes beyond traditional SIEM and EDR. The goal: a system that can <strong style="color:var(--text)">detect, understand, and respond</strong> to cyber threats autonomously — not just raise alerts for humans to triage.</p>
+    <div class="mods">
+      <div class="mod"><span class="i">[01]</span><h4>AI-powered XDR</h4><p>Extended detection and response across endpoints, network and cloud.</p></div>
+      <div class="mod"><span class="i">[02]</span><h4>Security Knowledge Graph</h4><p>Links assets, identities and events so threats are understood in context.</p></div>
+      <div class="mod"><span class="i">[03]</span><h4>Attack Simulation</h4><p>Automated adversary emulation to continuously test defenses.</p></div>
+      <div class="mod"><span class="i">[04]</span><h4>AI SOC Copilot</h4><p>An assistant that explains incidents and recommends responses to analysts.</p></div>
+      <div class="mod"><span class="i">[05]</span><h4>Digital Twin</h4><p>A model of the enterprise environment to safely test changes and attacks.</p></div>
+      <div class="mod"><span class="i">[06]</span><h4>Platform Integrations</h4><p>Works alongside the tools enterprises already run.</p></div>
+    </div>
+    <div class="integr"><span class="k">integrates with →</span>
+      <span class="chip">Microsoft Defender</span><span class="chip">CrowdStrike</span><span class="chip">Wazuh</span><span class="chip">Splunk</span><span class="chip">+ more</span>
+    </div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="sh reveal"><span class="n">03.</span><h2>Hands-on work</h2><span class="ln"></span></div>
+  <div class="pgrid">
+    <div class="card reveal">
+      <span class="ico">// security labs</span>
+      <h3>Web App Security Testing</h3>
+      <p class="desc">Practical web application assessments in lab environments.</p>
+      <ul><li>Scanning and manual testing with OWASP ZAP</li><li>Finding and exploiting SQL Injection</li><li>Reflected &amp; stored XSS testing</li></ul>
+      <div class="chips"><span class="chip g">OWASP ZAP</span><span class="chip">SQLi</span><span class="chip">XSS</span></div>
+    </div>
+    <div class="card reveal">
+      <span class="ico">// hardware lab</span>
+      <h3>EEPROM Dump Analysis</h3>
+      <p class="desc">Analysing a raw memory dump from a simulated embedded device.</p>
+      <ul><li>Parsed raw EEPROM contents</li><li>Recovered stored passwords and keys</li><li>Applied low-level / assembly reading skills</li></ul>
+      <div class="chips"><span class="chip c">Forensics</span><span class="chip">Embedded</span><span class="chip">Hex analysis</span></div>
+    </div>
+    <div class="card reveal">
+      <span class="ico">// blue team</span>
+      <h3>Monitoring &amp; Cloud Security</h3>
+      <p class="desc">Defensive tasks across SIEM, cloud and infrastructure monitoring.</p>
+      <ul><li>Wazuh security monitoring and alerting</li><li>Microsoft 365 security configuration</li><li>Infrastructure monitoring with OpManager</li></ul>
+      <div class="chips"><span class="chip p">Wazuh</span><span class="chip">M365</span><span class="chip">OpManager</span></div>
+    </div>
+    <div class="card reveal">
+      <span class="ico">// python tool</span>
+      <h3>CSV Cleaner</h3>
+      <p class="desc">A non-destructive data-cleaning utility for messy CSV files.</p>
+      <ul><li>Removes duplicates and empty rows</li><li>Normalises whitespace, reports missing values</li><li>Prints cleaning stats; never touches the original</li></ul>
+      <div class="foot"><div class="chips"><span class="chip g">Python</span><span class="chip">CLI</span></div>
+        <a class="gh" href="https://github.com/bluemoth673" target="_blank" rel="noopener">github ↗</a></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="sh reveal"><span class="n">04.</span><h2>Skills &amp; tools</h2><span class="ln"></span></div>
+  <div class="sgrid">
+    <div class="card reveal"><h3 class="s">&gt; languages</h3>
+      <div class="bar"><div class="t"><span>Python</span><span>primary</span></div><div class="tr"><div class="f" data-w="90"></div></div></div>
+      <div class="bar"><div class="t"><span>Java</span><span>primary</span></div><div class="tr"><div class="f" data-w="88"></div></div></div>
+      <div class="bar"><div class="t"><span>C / C++</span><span>solid</span></div><div class="tr"><div class="f" data-w="70"></div></div></div>
+      <div class="bar"><div class="t"><span>Bash</span><span>solid</span></div><div class="tr"><div class="f" data-w="68"></div></div></div>
+      <div class="bar"><div class="t"><span>JavaScript / React</span><span>working</span></div><div class="tr"><div class="f" data-w="60"></div></div></div>
+      <div class="bar"><div class="t"><span>Assembly</span><span>reading</span></div><div class="tr"><div class="f" data-w="45"></div></div></div>
+    </div>
+    <div class="card reveal"><h3 class="s">&gt; security</h3>
+      <div class="chips">
+        <span class="chip g">Web App Pentesting</span><span class="chip g">Vulnerability Assessment</span>
+        <span class="chip c">Network Security</span><span class="chip c">SecOps &amp; Threat Detection</span>
+        <span class="chip p">AI-driven Security</span><span class="chip p">Security Automation</span>
+        <span class="chip">OWASP Top 10</span><span class="chip">SQLi / XSS</span>
+      </div>
+    </div>
+    <div class="card reveal"><h3 class="s">&gt; tools</h3>
+      <div class="chips">
+        <span class="chip">OWASP ZAP</span><span class="chip">Wazuh</span><span class="chip">Microsoft 365 Security</span>
+        <span class="chip">OpManager</span><span class="chip">OpenVAS</span><span class="chip">Linux</span>
+        <span class="chip">Git &amp; GitHub</span><span class="chip">HTML / CSS</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="path"><div class="wrap">
+  <div class="sh reveal"><span class="n">05.</span><h2>The path</h2><span class="ln"></span></div>
+  <div class="road reveal">
+    <div class="step done"><div class="w">foundation</div><h4>CS degree &amp; programming</h4><p>Python, Java, C/C++ and Linux at AASTMT — the base everything else builds on.</p></div>
+    <div class="step done"><div class="w">hands-on</div><h4>Offensive &amp; defensive labs</h4><p>Web app testing with ZAP, firmware analysis, Wazuh monitoring, M365 security.</p></div>
+    <div class="step now"><div class="w">now · 2026–2027</div><h4>ARES graduation project</h4><p>Building an autonomous, AI-driven security platform with my team.</p></div>
+    <div class="step"><div class="w">next</div><h4>Junior Pentester / SOC Analyst</h4><p>Real-world experience on offensive and defensive teams, plus industry certifications.</p></div>
+    <div class="step"><div class="w">goal</div><h4>Cybersecurity Architect</h4><p>Designing secure enterprise systems from the ground up.</p></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact reveal">
+    <span class="n mono" style="color:var(--green)">06. what's next?</span>
+    <h2>Let's work together</h2>
+    <p>I'm looking for internships, entry-level security roles and freelance technical work. If you have an opportunity, or just want to talk security, my inbox is open.</p>
+    <a class="btn p" href="mailto:boudytamer69@gmail.com">Say hello →</a>
+    <div class="socials">
+      <a href="https://github.com/bluemoth673" target="_blank" rel="noopener">github/bluemoth673</a>
+      <a href="mailto:boudytamer69@gmail.com">email</a>
+      <!-- <a href="https://linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener">linkedin</a> -->
+      <!-- <a href="cv.pdf" target="_blank">resume.pdf</a> -->
+    </div>
+  </div>
+</div></section>
+
+<footer>designed &amp; built by <span>bluemoth673</span> · press <span>`</span> for a shell</footer>
+
+<div id="term" role="dialog" aria-label="Terminal">
+  <div class="tw">
+    <div class="tbar"><i style="background:#ff5f57" onclick="T.close()" title="close"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><div class="t">guest@bluemoth673: ~</div></div>
+    <div class="tbody" id="tbody"></div>
+  </div>
+</div>
+
+<script>
+/* background grid */
+(()=>{const c=document.getElementById('grid'),x=c.getContext('2d');let w,h,pts=[];
+function rs(){w=c.width=innerWidth;h=c.height=innerHeight;pts=Array.from({length:Math.min(70,w/18)},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25}))}
+rs();addEventListener('resize',rs);
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function f(){x.clearRect(0,0,w,h);
+ for(const p of pts){if(!still){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1}
+  x.fillStyle='rgba(124,77,255,.6)';x.fillRect(p.x,p.y,1.6,1.6)}
+ for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+  if(d<140){x.strokeStyle=`rgba(57,255,136,${(1-d/140)*.08})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+ if(!still)requestAnimationFrame(f)})();})();
+
+/* nav */
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.getElementById('links').classList.remove('open'));
+
+/* typing */
+(()=>{const r=['Cybersecurity Student','Aspiring Cybersecurity Architect','Web App Pentester in training','Python & Java Developer','Security Research Enthusiast'],el=document.getElementById('typed');let i=0,k=0,del=false;
+(function t(){const s=r[i];el.textContent=s.slice(0,k);
+ if(!del&&k<s.length){k++;setTimeout(t,65)}else if(!del){del=true;setTimeout(t,1800)}
+ else if(k>0){k--;setTimeout(t,30)}else{del=false;i=(i+1)%r.length;setTimeout(t,300)}})();})();
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.f').forEach(f=>f.style.width=f.dataset.w+'%');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* terminal */
+const T=(()=>{const box=document.getElementById('term'),body=document.getElementById('tbody');let hist=[],hi=0,input,booted=false;
+const P='<span class="pr"><b>guest</b>@<em>bluemoth673</em>:~$</span>';
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function out(html,cls='o-m'){const d=document.createElement('div');d.className='ln '+cls;d.innerHTML=html;body.insertBefore(d,body.lastChild);body.scrollTop=body.scrollHeight}
+const C={
+ help:()=>`<span class="o-g">available commands</span>
+  <span class="o-c">whoami</span>      who is bluemoth673
+  <span class="o-c">skills</span>      technical skills
+  <span class="o-c">projects</span>    hands-on work
+  <span class="o-c">ares</span>        graduation project deep-dive
+  <span class="o-c">roadmap</span>     where I'm headed
+  <span class="o-c">contact</span>     how to reach me
+  <span class="o-c">github</span>      open my GitHub
+  <span class="o-c">ls</span> / <span class="o-c">cat</span>    poke around the filesystem
+  <span class="o-c">clear</span>       clear screen
+  <span class="o-c">exit</span>        back to the site
+<span class="o-m">tip: ↑/↓ history · Tab autocomplete · Esc closes</span>`,
+ whoami:()=>`<span class="o-g">Tamer</span> <span class="o-p">(aka BlueMoth673)</span>
+CS student @ AASTMT, Egypt — class of 2027
+Aspiring Cybersecurity Architect. Offensive security by curiosity,
+defensive engineering by design. Linux daily driver.
+<span class="o-y">→ open to internships & junior security roles</span>`,
+ skills:()=>`<span class="o-g">[languages]</span>  Python ██████████ Java █████████▌ C/C++ ███████ Bash ███████
+             JavaScript/React ██████ Assembly (reading) ████▌
+<span class="o-g">[security]</span>   web app pentesting · vuln assessment · network security
+             SecOps & threat detection · AI-driven security · automation
+<span class="o-g">[tools]</span>      OWASP ZAP · Wazuh · M365 Security · OpManager · OpenVAS · Git · Linux`,
+ projects:()=>`<span class="o-c">01</span> <span class="o-g">ARES</span>                 AI autonomous security platform  (type 'ares')
+<span class="o-c">02</span> <span class="o-g">Web App Testing</span>      ZAP · SQLi · XSS labs
+<span class="o-c">03</span> <span class="o-g">EEPROM Analysis</span>      recovered keys/passwords from a firmware dump
+<span class="o-c">04</span> <span class="o-g">Blue Team Labs</span>       Wazuh · Microsoft 365 · OpManager
+<span class="o-c">05</span> <span class="o-g">CSV Cleaner</span>          Python data-cleaning CLI → <a href="https://github.com/bluemoth673" target="_blank">github</a>`,
+ ares:()=>`<span class="o-p">╔═ ARES ═ Autonomous Resilient Enterprise Security ═╗</span>
+ Graduation project · team · <span class="o-y">in development</span>
+
+ Beyond SIEM/EDR — a platform that detects, understands and
+ responds to threats autonomously.
+
+  <span class="o-g">▸</span> AI-powered XDR          <span class="o-g">▸</span> Security knowledge graph
+  <span class="o-g">▸</span> Automated attack sim    <span class="o-g">▸</span> AI SOC copilot
+  <span class="o-g">▸</span> Enterprise digital twin <span class="o-g">▸</span> Defender/CrowdStrike/Wazuh/Splunk
+<span class="o-p">╚═══════════════════════════════════════════════════╝</span>`,
+ roadmap:()=>`<span class="o-g">[✓]</span> CS foundations & programming
+<span class="o-g">[✓]</span> offensive + defensive labs
+<span class="o-y">[~]</span> ARES graduation project   &lt;-- you are here
+<span class="o-m">[ ]</span> junior pentester / SOC analyst
+<span class="o-m">[ ]</span> cybersecurity architect`,
+ contact:()=>`email   <a href="mailto:boudytamer69@gmail.com">boudytamer69@gmail.com</a>
+github  <a href="https://github.com/bluemoth673" target="_blank">github.com/bluemoth673</a>`,
+ github:()=>{open('https://github.com/bluemoth673','_blank');return 'opening github.com/bluemoth673 ...'},
+ ls:()=>`<span class="o-c">about.txt</span>  <span class="o-c">ares.md</span>  <span class="o-c">contact.txt</span>  <span class="o-p">projects/</span>  <span class="o-r">.secret</span>`,
+ cat:a=>({'about.txt':'whoami','ares.md':'ares','contact.txt':'contact'}[a]?C[{'about.txt':'whoami','ares.md':'ares','contact.txt':'contact'}[a]]():a==='.secret'?'<span class="o-r">permission denied.</span> nice try though ;)':a?`cat: ${esc(a)}: No such file or directory`:'usage: cat &lt;file&gt;'),
+ cd:a=>a==='projects'||a==='projects/'?C.projects():'bash: cd: nowhere to go — this is a portfolio :)',
+ sudo:a=>a.startsWith('rm')?'<span class="o-r">nope.</span> this incident will be reported to Wazuh.':'<span class="o-y">[sudo] password for guest:</span> guest is not in the sudoers file. Try hiring me instead.',
+ nmap:()=>`Starting Nmap scan against bluemoth673 ...
+PORT     STATE  SERVICE
+22/tcp   open   curiosity
+80/tcp   open   portfolio
+443/tcp  open   hire-me
+Nmap done: 1 host up — and available for internships.`,
+ hack:()=>'<span class="o-g">access granted.</span> just kidding. type <span class="o-c">contact</span> for the real backdoor.',
+ date:()=>new Date().toString(),
+ echo:a=>esc(a),
+ clear:()=>{[...body.querySelectorAll('.ln')].forEach(n=>n.remove());return null},
+ exit:()=>{close();return null}
+};
+function run(raw){const v=raw.trim();out(P+' '+esc(v),'');if(!v)return;hist.push(v);hi=hist.length;
+ const [c,...r]=v.split(/\s+/),a=r.join(' '),f=C[c.toLowerCase()];
+ const res=f?f(a):`<span class="o-r">command not found:</span> ${esc(c)} — type <span class="o-c">help</span>`;if(res!==null&&res!==undefined)out(res)}
+function build(){const l=document.createElement('div');l.className='inl';l.innerHTML=P+'<input autocomplete="off" spellcheck="false" aria-label="terminal input">';body.appendChild(l);input=l.querySelector('input');
+ input.onkeydown=e=>{if(e.key==='Enter'){run(input.value);input.value=''}
+  else if(e.key==='ArrowUp'){if(hi>0)input.value=hist[--hi];e.preventDefault()}
+  else if(e.key==='ArrowDown'){hi<hist.length-1?input.value=hist[++hi]:(hi=hist.length,input.value='');e.preventDefault()}
+  else if(e.key==='Tab'){e.preventDefault();const m=Object.keys(C).filter(k=>k.startsWith(input.value));if(m.length===1)input.value=m[0];else if(m.length)out(m.join('  '))}
+  else if(e.key==='l'&&e.ctrlKey){e.preventDefault();C.clear()}}}
+function open(){box.classList.add('open');document.body.style.overflow='hidden';
+ if(!booted){booted=true;build();
+  out(`<span class="o-g">  _     _                            _   _
+ | |__ | |_   _  ___ _ __ ___   ___ | |_| |__
+ | '_ \\| | | | |/ _ \\ '_ \` _ \\ / _ \\| __| '_ \\
+ | |_) | | |_| |  __/ | | | | | (_) | |_| | | |
+ |_.__/|_|\\__,_|\\___|_| |_| |_|\\___/ \\__|_| |_|</span>
+<span class="o-m">BlueMoth OS 6.7.3 — welcome, guest. Type</span> <span class="o-c">help</span> <span class="o-m">to begin.</span>`,'')}
+ setTimeout(()=>input.focus(),50)}
+function close(){box.classList.remove('open');document.body.style.overflow=''}
+body.onclick=()=>{if(!getSelection().toString())input&&input.focus()};
+box.onclick=e=>{if(e.target===box)close()};
+let buf='';
+addEventListener('keydown',e=>{const t=box.classList.contains('open');
+ if(e.key==='Escape'&&t)return close();
+ if(t||/input|textarea/i.test(document.activeElement.tagName))return;
+ if(e.key==='`'||e.key==='~'){e.preventDefault();return open()}
+ buf=(buf+e.key).slice(-4);if(buf==='sudo'){buf='';open()}});
+console.log('%c>_ curious? press ` on the page, or hire me: boudytamer69@gmail.com','color:#39ff88;font-family:monospace;font-size:13px');
+return{open,close}})();
+</script>
+</body>
+</html>
